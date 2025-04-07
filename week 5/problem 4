@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+
+class Car {
+    string model;
+    double pricePerDay;
+    bool isAvailable;
+
+public:
+    // Default constructor
+    Car() {
+        model = "Default";
+        pricePerDay = 1000;
+        isAvailable = true;
+    }
+
+    // Parameterized constructor
+    Car(string m, double p, bool available) {
+        model = m;
+        pricePerDay = p;
+        isAvailable = available;
+    }
+
+    // Copy constructor
+    Car(const Car& other) {
+        model = other.model;
+        pricePerDay = other.pricePerDay;
+        isAvailable = other.isAvailable;
+    }
+
+    // Function overloading for booking
+    void book(int days) {
+        cout << "Booking for " << days << " days. Total = ₹" << days * pricePerDay << endl;
+    }
+
+    void book(double discountPercent) {
+        double discount = pricePerDay * (discountPercent / 100.0);
+        cout << "Booking with " << discountPercent << "% discount. Price = ₹" << pricePerDay - discount << " per day" << endl;
+    }
+
+    void book(int days, double insurance) {
+        double total = (pricePerDay * days) + insurance;
+        cout << "Booking for " << days << " days + insurance ₹" << insurance << ". Total = ₹" << total << endl;
+    }
+
+    // Operator overloading +
+    double operator+(Car& other) {
+        return this->pricePerDay + other.pricePerDay;
+    }
+
+    // Operator overloading >
+    bool operator>(Car& other) {
+        return this->pricePerDay > other.pricePerDay;
+    }
+
+    void showDetails() {
+        cout << "Model: " << model << ", ₹" << pricePerDay << " per day, Available: " << (isAvailable ? "Yes" : "No") << endl;
+    }
+};
+
+int main() {
+    Car car1("Honda City", 2000, true);
+    Car car2("Hyundai i20", 1500, true);
+    Car car3 = car1;  // Copy constructor
+
+    car1.showDetails();
+    car2.showDetails();
+    car3.showDetails();
+
+    // Function overloading usage
+    car1.book(3);                  // Booking with days
+    car2.book(10.0);               // Booking with discount %
+    car3.book(2, 500);             // Booking with insurance
+
+    // Operator overloading usage
+    cout << "Total price of both cars per day: ₹" << (car1 + car2) << endl;
+
+    if (car1 > car2)
+        cout << car1.model << " is more expensive per day than " << car2.model << endl;
+    else
+        cout << car2.model << " is more expensive per day than " << car1.model << endl;
+
+    return 0;
+}
