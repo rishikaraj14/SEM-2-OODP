@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+    int accountNumber;
+    double balance;
+
+public:
+    // Constructor Overloading
+    BankAccount() {
+        accountNumber = 0;
+        balance = 0.0;
+    }
+
+    BankAccount(int accNum) {
+        accountNumber = accNum;
+        balance = 0.0;
+    }
+
+    BankAccount(int accNum, double bal) {
+        accountNumber = accNum;
+        balance = bal;
+    }
+
+    // Function Overloading for deposit
+    void deposit(int amount) {
+        balance += amount;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+    // Function Overloading for withdraw
+    void withdraw(int amount) {
+        if (amount <= balance)
+            balance -= amount;
+        else
+            cout << "Insufficient balance!\n";
+    }
+
+    void withdraw(double amount) {
+        if (amount <= balance)
+            balance -= amount;
+        else
+            cout << "Insufficient balance!\n";
+    }
+
+    // Operator Overloading to compare accounts
+    bool operator > (BankAccount& other) {
+        return this->balance > other.balance;
+    }
+
+    // Display account details
+    void display() {
+        cout << "Account No: " << accountNumber << ", Balance: " << balance << endl;
+    }
+};
+
+// Main function to demonstrate
+int main() {
+    BankAccount acc1(101, 5000.50);
+    BankAccount acc2(102, 3000);
+
+    acc1.deposit(1000);
+    acc2.withdraw(500);
+
+    acc1.display();
+    acc2.display();
+
+    if (acc1 > acc2)
+        cout << "Account 1 has more balance than Account 2" << endl;
+    else
+        cout << "Account 2 has more or equal balance than Account 1" << endl;
+
+    return 0;
+}
