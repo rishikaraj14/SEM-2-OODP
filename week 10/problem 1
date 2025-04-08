@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> marks; // Vector to store marks
+
+    // Adding marks of 5 students
+    marks.push_back(85);
+    marks.push_back(90);
+    marks.push_back(78);
+    marks.push_back(92);
+    marks.push_back(88);
+
+    // Printing the mark of the 3rd student (index 2)
+    cout << "The mark of the 3rd student is: " << marks[2] << endl;
+
+    return 0;
+}
