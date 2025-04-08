@@ -1,0 +1,25 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<string> queue = {"John", "Alice", "Bob", "Eva", "Tom"};
+
+    // Adding "Amit" at the back
+    queue.push_back("Amit");
+
+    // Adding "Riya" at the front
+    queue.push_front("Riya");
+
+    // Removing a student from the front (served)
+    cout << "Student served: " << queue.front() << endl;
+    queue.pop_front();
+
+    // Displaying remaining students
+    cout << "Remaining students in the queue:\n";
+    for (const auto& student : queue) {
+        cout << student << endl;
+    }
+
+    return 0;
+}
