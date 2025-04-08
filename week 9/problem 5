@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+class Cleanup {
+public:
+    ~Cleanup() {
+        cout << "Cleanup done." << endl;
+    }
+};
+
+int main() {
+    try {
+        Cleanup cleanup; // Ensures cleanup on scope exit
+        cout << "Processing sensitive data..." << endl;
+        // Simulate an exception
+        throw runtime_error("Error: Failed to process data.");
+    } catch (const exception& e) {
+        cout << e.what() << endl;
+    }
+
+    return 0;
+}
