@@ -1,0 +1,23 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<string> todoList = {"Shopping", "Cooking", "Packing"};
+
+    // Removing "Cooking"
+    todoList.remove("Cooking");
+
+    // Adding "Wrapping" to the second position
+    auto it = todoList.begin();
+    advance(it, 1); // Move iterator to the second position
+    todoList.insert(it, "Wrapping");
+
+    // Displaying the to-do list
+    cout << "To-Do List:\n";
+    for (const auto& task : todoList) {
+        cout << "- " << task << endl;
+    }
+
+    return 0;
+}
