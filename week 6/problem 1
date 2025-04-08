@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class Student
+class Student {
+protected:
+    string name;
+    int rollNumber;
+public:
+    void setStudentDetails(string n, int r) {
+        name = n;
+        rollNumber = r;
+    }
+    void displayStudentDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+// Base class SportsPlayer
+class SportsPlayer {
+protected:
+    string sportName;
+    int ranking;
+public:
+    void setSportsDetails(string s, int r) {
+        sportName = s;
+        ranking = r;
+    }
+    void displaySportsDetails() {
+        cout << "Sport: " << sportName << endl;
+        cout << "Ranking: " << ranking << endl;
+    }
+};
+
+// Derived class SportStudent (Multiple Inheritance)
+class SportStudent : public Student, public SportsPlayer {
+public:
+    void displayDetails() {
+        displayStudentDetails();
+        displaySportsDetails();
+    }
+};
+
+int main() {
+    SportStudent ss;
+    ss.setStudentDetails("Alice", 101);
+    ss.setSportsDetails("Basketball", 5);
+
+    cout << "Sport Student Details:\n";
+    ss.displayDetails();
+
+    return 0;
+}
