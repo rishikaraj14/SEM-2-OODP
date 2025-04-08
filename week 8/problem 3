@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+// Class Template for Storage
+template <typename T>
+class Storage {
+private:
+    T value;
+
+public:
+    Storage(T val) : value(val) {}
+
+    void display() {
+        cout << "Stored Value: " << value << endl;
+    }
+};
+
+int main() {
+    Storage<int> intStorage(42);
+    Storage<float> floatStorage(3.14);
+    Storage<string> stringStorage("Template Class");
+
+    intStorage.display();
+    floatStorage.display();
+    stringStorage.display();
+
+    return 0;
+}
