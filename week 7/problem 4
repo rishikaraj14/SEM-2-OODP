@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    virtual void study() = 0;  // Pure virtual function (abstract class)
+    virtual ~Student() {}      // Virtual destructor
+};
+
+class Undergraduate : public Student {
+public:
+    void study() override {
+        cout << "Undergraduate studies basic courses." << endl;
+    }
+};
+
+class Postgraduate : public Student {
+public:
+    void study() override {
+        cout << "Postgraduate studies advanced courses." << endl;
+    }
+};
+
+int main() {
+    Student* student1 = new Undergraduate();
+    Student* student2 = new Postgraduate();
+
+    student1->study();
+    student2->study();
+
+    delete student1;
+    delete student2;
+
+    return 0;
+}
