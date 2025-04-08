@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<string> typedWords;
+
+    // Typing three words
+    typedWords.push("Hello");
+    typedWords.push("World");
+    typedWords.push("Test");
+
+    // Undo the last typed word
+    if (!typedWords.empty()) {
+        typedWords.pop();
+    }
+
+    // Displaying the remaining words
+    cout << "Words after undo:\n";
+    while (!typedWords.empty()) {
+        cout << typedWords.top() << endl;
+        typedWords.pop();
+    }
+
+    return 0;
+}
