@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+void processTransaction(int amount) {
+    if (amount < 0) {
+        throw invalid_argument("Error: Negative transaction amount.");
+    }
+    cout << "Transaction processed for amount: " << amount << endl;
+}
+
+void handleTransaction(int amount) {
+    try {
+        processTransaction(amount);
+    } catch (const exception& e) {
+        throw; // Rethrow the exception
+    }
+}
+
+int main() {
+    try {
+        handleTransaction(-500);
+    } catch (const exception& e) {
+        cout << "Exception caught in main: " << e.what() << endl;
+    }
+
+    return 0;
+}
