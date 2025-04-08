@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+// Function Template to find the maximum
+template <typename T>
+void findMax(T a, T b) {
+    cout << "Max Value: " << (a > b ? a : b) << endl;
+}
+
+int main() {
+    findMax(10, 20);        // int
+    findMax(5.5, 3.3);     // float
+    findMax(8.9, 12.3);    // double
+
+    return 0;
+}
