@@ -1,0 +1,31 @@
+#include <iostream>
+#include <exception>
+using namespace std;
+
+class NegativeValueException : public exception {
+public:
+    const char* what() const noexcept override {
+        return "Error: Negative deposit amount is not allowed.";
+    }
+};
+
+void deposit(double amount) {
+    if (amount < 0) {
+        throw NegativeValueException();
+    }
+    cout << "Deposit successful: $" << amount << endl;
+}
+
+int main() {
+    double amount;
+    cout << "Enter deposit amount: ";
+    cin >> amount;
+
+    try {
+        deposit(amount);
+    } catch (const NegativeValueException& e) {
+        cout << e.what() << endl;
+    }
+
+    return 0;
+}
