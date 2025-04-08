@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+// Class Template for Calculator
+template <typename T>
+class Calculator {
+private:
+    T a, b;
+
+public:
+    Calculator(T a, T b) : a(a), b(b) {}
+
+    void add() {
+        cout << "Addition: " << (a + b) << endl;
+    }
+
+    void subtract() {
+        cout << "Subtraction: " << (a - b) << endl;
+    }
+
+    void multiply() {
+        cout << "Multiplication: " << (a * b) << endl;
+    }
+
+    void divide() {
+        if (b != 0)
+            cout << "Division: " << (a / b) << endl;
+        else
+            cout << "Division by zero is not allowed." << endl;
+    }
+};
+
+int main() {
+    Calculator<int> intCalc(10, 5);
+    Calculator<float> floatCalc(5.5f, 2.2f);
+
+    cout << "Integer Operations:" << endl;
+    intCalc.add();
+    intCalc.subtract();
+    intCalc.multiply();
+    intCalc.divide();
+
+    cout << "\nFloating-Point Operations:" << endl;
+    floatCalc.add();
+    floatCalc.subtract();
+    floatCalc.multiply();
+    floatCalc.divide();
+
+    return 0;
+}
