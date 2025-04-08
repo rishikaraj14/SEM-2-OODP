@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+// Function Template
+template <typename T>
+void display(T value) {
+    cout << "Value: " << value << endl;
+}
+
+int main() {
+    display(100);               // int
+    display(3.14f);            // float
+    display("Hello, World!");  // string
+
+    return 0;
+}
