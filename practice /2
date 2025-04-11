@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Concat {
+public:
+    T result;
+
+    Concat(T n1, T n2) {
+        result = n1 + n2;
+        cout << "Result: " << result << endl;
+    }
+};
+
+int main() {
+    Concat c1(5, 6);                 // Integer addition
+    Concat c2(2.5, 7.5);          // Float addition
+    Concat c3("Ram", "Kumar");    // String concatenation
+
+    return 0;
+}
