@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+using namespace std ;
+
+class A {
+public :
+    int Reg_no ;
+    string name ;
+    
+public :
+        A (int n , string NAAM){
+            Reg_no = n ;
+            name = NAAM ;
+        }
+    
+    void display(){
+        cout<<"The Resigration number and name is "<< Reg_no <<" and "<< name << endl;
+        
+    }
+    
+};
+
+int main() {
+    A obj(101,"Rishika");
+    obj.display();
+    
+}
