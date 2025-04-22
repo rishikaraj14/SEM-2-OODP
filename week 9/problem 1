@@ -1,4 +1,8 @@
+//Using the right libraies
+
 #include <iostream>
+#include <stdexcept>
+#include <string>
 using namespace std;
 
 int main() {
@@ -10,11 +14,11 @@ int main() {
 
     try {
         if (denominator == 0) {
-            throw runtime_error("Error: Division by zero is undefined.");
+            throw string("Division by zero is not allowed.");  // throwing a std::string object
         }
         cout << "Result: " << numerator / denominator << endl;
-    } catch (const exception& e) {
-        cout << e.what() << endl;
+    } catch (string msg) {  
+        cout << "Error: " << msg << endl;
     }
 
     return 0;
